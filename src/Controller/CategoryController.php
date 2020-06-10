@@ -5,7 +5,7 @@ namespace App\Controller;
 
 use App\Model\Category;
 
-class LibraryController
+class CategoryController
 {
     protected $connect;
 

@@ -1,24 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
 <body>
-<form method="post">
-    Id:
-    <input type="text" name="id" required placeholder="nhập mã">
-    <br>
-    Category:
-    <input type="text" name="cate" required>
-    <br>
-    Description:
-    <input type="text" name="desc" required>
-    <br>
-    <button type="submit">ADD</button>
-</form>
+<h3>Thêm thể loại sách</h3>
+<div class="col-12 col-md-12">
+    <div>
+        <form method="post" class="">
+            <label for="exampleFormControlTextarea1">Id:</label>
+            <input class="form-control" name="id" type="text" required>
+            <label for="exampleFormControlTextarea1">Name:</label>
+            <input class="form-control" name="cate" type="text" required>
+            <label for="exampleFormControlTextarea1">Description:</label>
+            <input class="form-control" name="desc" type="text" required>
+            <br>
+            <div class="bt-4">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </div>
+
+</div>
 </body>
-</html>

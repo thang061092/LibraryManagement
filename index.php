@@ -1,10 +1,10 @@
 <?php
 
-use App\Controller\LibraryController;
+use App\Controller\CategoryController;
 
 $load = require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
-$controller = new LibraryController();
+$controller = new CategoryController();
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,6 +17,9 @@ $controller = new LibraryController();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -33,6 +36,7 @@ $controller = new LibraryController();
             $controller->addCategory();
             break;
         default:
+            $controller->viewCategory();
 
     }
     ?>
