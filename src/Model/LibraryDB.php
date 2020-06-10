@@ -85,5 +85,29 @@ class LibraryDB
         $stmt->execute();
     }
 
+    public function getStudent()
+    {
+        $sql = "SELECT * FROM students";
+        $stmt = $this->database->prepare($sql);
+        $result = $stmt->fetchAll();
+        $array = [];
+        foreach ($result as $item) {
+            $student = new Student($item['id'], $item['studentName'], $item['gender'], $item['address'], $item['email'], $item['phone']);
+            array_push($array, $student);
+        }
+        return $array;
+    }
 
+    public function addStudent($student)
+    {
+        $sql = "INSERT INTO `students`(`id`, `studentName`, `gender`, `address`, `email`, `phone`) VALUES (:id, :studentName, :gender, :address, :email, :phone)";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":id", $student->getId());
+        $stmt->bindParam(":studentName", $student->getStudentName());
+        $stmt->bindParam(":gender", $student->getGender());
+        $stmt->bindParam(":address", $student->getEmail());
+        $stmt->bindParam(":email", $student->getEmail());
+        $stmt->bindParam(":phone", $student->getPhone());
+        $stmt->execute();
+    }
 }

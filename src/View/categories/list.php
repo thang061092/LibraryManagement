@@ -11,7 +11,6 @@
                 </form>
             </div>
         </div>
-
     </div>
     <div class="col-12 col-md-12 list-category">
         <table class="table table-hover">
@@ -41,9 +40,7 @@
                         </td>
                     </tr>
                 <?php endforeach; ?>
-
             <?php endif; ?>
-
         </table>
     </div>
 </div>

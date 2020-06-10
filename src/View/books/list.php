@@ -11,52 +11,50 @@
                 </form>
             </div>
         </div>
-
     </div>
-<<<<<<< HEAD
+
     <div class="col-12 col-md-12 ">
-        <table class="table">
-=======
-    <div class="col-12 col-md-12 list-category">
-        <table class="table table-hover">
->>>>>>> 8edfc0111980403565647858f15ec11430c6c6e9
-            <thead class="thead-dark table-bordered">
-            <tr>
-                <th>STT</th>
-                <th>Book</th>
-                <th>Author</th>
-                <th>Publisher</th>
-                <th>PublishYear</th>
-                <th>Price</th>
-                <th></th>
-            </tr>
-            </thead>
-            <?php if (empty($books)): ?>
+        <div class="col-12 col-md-12 list-category">
+            <table class="table table-hover">
+
+                <thead class="thead-dark table-bordered">
                 <tr>
-                    <th colspan="10">
-                        No Data
-                    </th>
+                    <th>STT</th>
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>PublishYear</th>
+                    <th>Price</th>
+                    <th></th>
                 </tr>
-            <?php else: ?>
-                <?php foreach ($books as $key => $book): ?>
+                </thead>
+                <?php if (empty($books)): ?>
                     <tr>
-                        <td><?php echo ++$key ?></td>
-                        <td><?php echo $book->getBookName() ?></td>
-                        <td><?php echo $book->getAuthor() ?></td>
-                        <td><?php echo $book->getPublisher() ?></td>
-                        <td><?php echo $book->getPublishYear() ?></td>
-                        <td><?php echo $book->getPrice() ?></td>
-                        <td>
-                            <a class="btn btn-primary" href="index.php?page=update-category&id=<?php echo $book->getIdBook() ?>">update</a>
-                            <a class="btn btn-danger" href="">Delete</a>
-                        </td>
+                        <th colspan="10">
+                            No Data
+                        </th>
                     </tr>
-                <?php endforeach; ?>
+                <?php else: ?>
+                    <?php foreach ($books as $key => $book): ?>
+                        <tr>
+                            <td><?php echo ++$key ?></td>
+                            <td><?php echo $book->getBookName() ?></td>
+                            <td><?php echo $book->getAuthor() ?></td>
+                            <td><?php echo $book->getPublisher() ?></td>
+                            <td><?php echo $book->getPublishYear() ?></td>
+                            <td><?php echo $book->getPrice() ?></td>
+                            <td>
+                                <a class="btn btn-primary"
+                                   href="index.php?page=update-category&id=<?php echo $book->getIdBook() ?>">update</a>
+                                <a class="btn btn-danger" href="">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
 
-            <?php endif; ?>
+                <?php endif; ?>
 
-        </table>
+            </table>
+        </div>
     </div>
-</div>
 
 
