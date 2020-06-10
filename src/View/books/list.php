@@ -13,7 +13,7 @@
         </div>
 
     </div>
-    <div class="col-12 col-md-12 list-category">
+    <div class="col-12 col-md-12 ">
         <table class="table">
             <thead class="thead-dark table-bordered">
             <tr>

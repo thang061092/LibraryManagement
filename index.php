@@ -36,8 +36,11 @@ $controllerBook = new \App\Controller\BookController();
         case "add-category":
             $controllerCate->addCategory();
             break;
-        case "view-book";
+        case "view-book":
             $controllerBook->viewBook();
+            break;
+        case"update-book":
+            $controllerBook->updateBook();
             break;
         default:
             $controllerBook->viewBook();
