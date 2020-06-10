@@ -26,6 +26,9 @@ switch ($page) {
     case "update-category":
         $controller->updateCategory();
         break;
+    case "add-category":
+        $controller->addCategory();
+        break;
 }
 ?>
 </body>

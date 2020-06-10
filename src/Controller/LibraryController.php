@@ -29,11 +29,26 @@ class LibraryController
         } else {
             $id = $_REQUEST["id"];
             $cate = $_REQUEST["category"];
-            $desc= $_REQUEST["description"];
-            $category= new Categoty($id,$cate,$desc);
+            $desc = $_REQUEST["description"];
+            $category = new Categoty($id, $cate, $desc);
             $this->connect->updateCategory($category);
             header("Location:index.php?page=view-category");
         }
+    }
+
+    public function addCategory()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            include "src/View/ViewCategory/add.php";
+        } else {
+            $id = $_REQUEST["id"];
+            $cate = $_REQUEST["cate"];
+            $desc = $_REQUEST["desc"];
+            $category = new Categoty($id, $cate, $desc);
+            $this->connect->addCategory($category);
+            header("Location:index.php?page=view-category");
+        }
+
     }
 
 }

@@ -48,5 +48,15 @@ class LibraryDB
         $stmt->execute();
     }
 
+    public function addCategory($category)
+    {
+        $sql = "INSERT INTO `category`(`id`, `categoryName`, `description`) VALUES (:id, :categoryName ,:description)";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":id", $category->getId());
+        $stmt->bindParam(":categoryName", $category->getCategoryName());
+        $stmt->bindParam(":description", $category->getDescription());
+        $stmt->execute();
+    }
+
 
 }
