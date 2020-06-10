@@ -11,7 +11,6 @@
                 </form>
             </div>
         </div>
-
     </div>
     <div class="col-12 col-md-12 list-category">
         <table class="table">
