@@ -32,7 +32,9 @@ $controller = new LibraryController();
         case "add-category":
             $controller->addCategory();
             break;
+
         default:
+            $controller->viewCategory();
 
     }
     ?>

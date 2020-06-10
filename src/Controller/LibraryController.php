@@ -50,4 +50,11 @@ class LibraryController
         }
     }
 
+    public function searchCategory()
+    {
+        if($_SERVER["REQUEST_METHOD"] == "GET") {
+
+        }
+    }
+
 }

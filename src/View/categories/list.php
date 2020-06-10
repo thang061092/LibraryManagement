@@ -5,7 +5,7 @@
                 <a class="btn btn-primary" href="index.php?page=add-category">Add new</a>
             </div>
             <div class="col-12 col-md-8">
-                <form class="form-inline my-2 my-lg-0">
+                <form method="post" class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>

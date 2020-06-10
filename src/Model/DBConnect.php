@@ -12,7 +12,7 @@ class DBConnect
     {
         $this->dsn = 'mysql:host=localhost;dbname=LibraryManagement';
         $this->username = 'root';
-        $this->password = '123456@Abc';
+        $this->password = 'Nguyen@123';
     }
 
     public function connect()

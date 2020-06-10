@@ -58,5 +58,11 @@ class LibraryDB
         $stmt->execute();
     }
 
+    public function searchCategory($table,$key)
+    {
+        $sql = "SELECT * FROM $table WHERE   REGEXP '$key' ORDERBY id DESC";
+        $this->excute($sql);
+    }
+
 
 }
