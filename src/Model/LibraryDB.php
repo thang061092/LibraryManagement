@@ -21,7 +21,7 @@ class LibraryDB
         $result = $stmt->fetchAll();
         $arr = [];
         foreach ($result as $item) {
-            $category = new Categoty($item["id"], $item["categoryName"], $item["description"]);
+            $category = new Category($item["id"], $item["categoryName"], $item["description"]);
             array_push($arr, $category);
         }
         return $arr;
@@ -34,7 +34,7 @@ class LibraryDB
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $item = $stmt->fetch();
-        $category = new Categoty($item["id"], $item["categoryName"], $item["description"]);
+        $category = new Category($item["id"], $item["categoryName"], $item["description"]);
         return $category;
     }
 

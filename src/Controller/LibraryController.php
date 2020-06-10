@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 
-use App\Model\Categoty;
+use App\Model\Category;
 
 class LibraryController
 {
@@ -17,7 +17,7 @@ class LibraryController
     public function viewCategory()
     {
         $categorys = $this->connect->getCategory();
-        include "src/View/ViewCategory/list.php";
+        include "src/View/categories/list.php";
     }
 
     public function updateCategory()
@@ -25,12 +25,12 @@ class LibraryController
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $id = $_GET["id"];
             $category = $this->connect->getIdCategory($id);
-            include "src/View/ViewCategory/update.php";
+            include "src/View/categories/update.php";
         } else {
             $id = $_REQUEST["id"];
             $cate = $_REQUEST["category"];
             $desc = $_REQUEST["description"];
-            $category = new Categoty($id, $cate, $desc);
+            $category = new Category($id, $cate, $desc);
             $this->connect->updateCategory($category);
             header("Location:index.php?page=view-category");
         }
@@ -39,16 +39,15 @@ class LibraryController
     public function addCategory()
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            include "src/View/ViewCategory/add.php";
+            include "src/View/categories/add.php";
         } else {
             $id = $_REQUEST["id"];
             $cate = $_REQUEST["cate"];
             $desc = $_REQUEST["desc"];
-            $category = new Categoty($id, $cate, $desc);
+            $category = new Category($id, $cate, $desc);
             $this->connect->addCategory($category);
             header("Location:index.php?page=view-category");
         }
-
     }
 
 }

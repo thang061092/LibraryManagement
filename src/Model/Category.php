@@ -4,7 +4,7 @@
 namespace App\Model;
 
 
-class Categoty
+class Category
 {
     protected $id;
     protected $categoryName;
