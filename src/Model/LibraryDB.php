@@ -64,11 +64,25 @@ class LibraryDB
         $stmt = $this->database->query($sql);
         $result = $stmt->fetchAll();
         $arr = [];
-        foreach ($result as $item){
-            $book = new Book($item["idBook"],$item["bookName"],$item['author'],$item['publisher'],$item['publishYear'],$item['price'],$item['idCategory']);
-            array_push($arr,$book);
+        foreach ($result as $item) {
+            $book = new Book($item["idBook"], $item["bookName"], $item['author'], $item['publisher'], $item['publishYear'], $item['price'], $item['idCategory']);
+            array_push($arr, $book);
         }
         return $arr;
+    }
+
+    public function addBook($book)
+    {
+        $sql = "INSERT INTO `books`(idBook,`bookName`, `author`, `publisher`, `publishYear`, `price`, `idCategory`) VALUES (?,?,?,?,?,?,?)";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(2, $book->getBookName());
+        $stmt->bindParam(4, $book->getPublisher());
+        $stmt->bindParam(5, $book->getPublishYear());
+        $stmt->bindParam(3, $book->getAuthor());
+        $stmt->bindParam(6, $book->getPrice());
+        $stmt->bindParam(7, $book->getIdCategory());
+        $stmt->bindParam(1, $book->getIdBook());
+        $stmt->execute();
     }
 
 

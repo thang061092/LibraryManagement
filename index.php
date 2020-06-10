@@ -39,6 +39,9 @@ $controllerBook = new \App\Controller\BookController();
         case "view-book";
             $controllerBook->viewBook();
             break;
+        case "add-book":
+            $controllerBook->addBook();
+            break;
         default:
             $controllerBook->viewBook();
     }
