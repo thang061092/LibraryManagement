@@ -4,11 +4,14 @@ use App\Controller\BookController;
 use App\Controller\CategoryController;
 use App\Controller\StudentControler;
 
+
 $load = require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
+
 $controllerCate = new CategoryController();
 $controllerBook = new BookController();
 $controllerStudent = new StudentControler();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -56,7 +59,6 @@ $controllerStudent = new StudentControler();
             break;
         default:
             $controllerStudent->viewStudent();
-            break;
     }
     ?>
 </div>

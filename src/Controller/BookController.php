@@ -31,11 +31,30 @@ class BookController
             $name = $_REQUEST["name"];
             $author = $_REQUEST["author"];
             $publisher = $_REQUEST["publisher"];
-            $publishYear=$_REQUEST["publishYear"];
-            $price=$_REQUEST["price"];
-            $idCategory=$_REQUEST["idCategory"];
-            $book= new Book($id,$name,$author,$publisher,$publishYear,$price,$idCategory);
+            $publishYear = $_REQUEST["publishYear"];
+            $price = $_REQUEST["price"];
+            $idCategory = $_REQUEST["idCategory"];
+            $book = new Book($id, $name, $author, $publisher, $publishYear, $price, $idCategory);
             $this->connect->addBook($book);
+            header("location:index.php?page=view-book");
+        }
+    }
+
+    public function updateBook()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            $id = $_GET["id"];
+            $book = $this->connect->getIdBook($id);
+            include "src/View/books/update.php";
+        } else {
+            $idBook = $_REQUEST["id"];
+            $nameBook = $_REQUEST["nameBook"];
+            $author = $_REQUEST["author"];
+            $publisher = $_REQUEST["publisher"];
+            $publishYear = $_REQUEST["publishYear"];
+            $price = $_REQUEST["price"];
+//            $book = new Book($idBook, $nameBook, $author, $publisher, $publishYear, $price, $idCategory);
+            $this->connect->updateBook($nameBook, $author, $publisher, $publishYear, $price, $idBook);
             header("location:index.php?page=view-book");
         }
     }

@@ -33,6 +33,18 @@
                         <th colspan="10">
                             No Data
                         </th>
+
+                        <td><?php echo ++$key ?></td>
+                        <td><?php echo $book->getBookName() ?></td>
+                        <td><?php echo $book->getAuthor() ?></td>
+                        <td><?php echo $book->getPublisher() ?></td>
+                        <td><?php echo $book->getPublishYear() ?></td>
+                        <td><?php echo $book->getPrice() ?></td>
+                        <td>
+                            <a class="btn btn-primary" href="index.php?page=update-book&id=<?php echo $book->getIdBook() ?>">update</a>
+                            <a class="btn btn-danger" href="">Delete</a>
+                        </td>
+
                     </tr>
                 <?php else: ?>
                     <?php foreach ($books as $key => $book): ?>

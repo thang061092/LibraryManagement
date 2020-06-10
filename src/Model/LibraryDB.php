@@ -73,15 +73,39 @@ class LibraryDB
 
     public function addBook($book)
     {
-        $sql = "INSERT INTO `books`(idBook,`bookName`, `author`, `publisher`, `publishYear`, `price`, `idCategory`) VALUES (?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO books(idBook, bookName, author, publisher, publishYear, price, idCategory) VALUES ( :id, :bookName, :author, :publisher, :publishYear, :price, :idCate)";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(2, $book->getBookName());
-        $stmt->bindParam(4, $book->getPublisher());
-        $stmt->bindParam(5, $book->getPublishYear());
-        $stmt->bindParam(3, $book->getAuthor());
-        $stmt->bindParam(6, $book->getPrice());
-        $stmt->bindParam(7, $book->getIdCategory());
-        $stmt->bindParam(1, $book->getIdBook());
+        $stmt->bindParam(":id", $book->getIdBook());
+        $stmt->bindParam(":bookName", $book->getBookName());
+        $stmt->bindParam(":author", $book->getAuthor());
+        $stmt->bindParam(":publisher", $book->getPublisher());
+        $stmt->bindParam(":publishYear", $book->getPublishYear());
+        $stmt->bindParam(":price", $book->getPrice());
+        $stmt->bindParam(":idCate", $book->getIdCategory());
+        $stmt->execute();
+    }
+
+    public function getIdBook($id)
+    {
+        $sql = "SELECT * FROM books WHERE idBook= :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $item = $stmt->fetch();
+        $book = new Book($item["idBook"], $item["bookName"], $item['author'], $item['publisher'], $item['publishYear'], $item['price'], $item['idCategory']);
+        return $book;
+    }
+
+    public function updateBook($bookName, $author, $publisher, $publishYear, $price, $idBook)
+    {
+        $sql = "UPDATE books SET bookName= :bookName, author= :author, publisher= :publisher, publishYear= :publishYear, price= :price WHERE idBook = :idBook";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":bookName", $bookName);
+        $stmt->bindParam(":author", $author);
+        $stmt->bindParam(":publisher", $publisher);
+        $stmt->bindParam(":publishYear", $publishYear);
+        $stmt->bindParam(":price", $price);
+        $stmt->bindParam(":idBook", $idBook);
         $stmt->execute();
     }
 
