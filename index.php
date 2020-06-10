@@ -4,7 +4,8 @@ use App\Controller\CategoryController;
 
 $load = require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
-$controller = new CategoryController();
+$controllerCate = new CategoryController();
+$controllerBook = new \App\Controller\BookController();
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,21 +24,23 @@ $controller = new CategoryController();
 </head>
 <body>
 <div class="container">
-    <?php  include_once 'src/View/core/menu.php'?>
+    <?php include_once 'src/View/core/menu.php' ?>
     <?php
     switch ($page) {
         case "view-category":
-            $controller->viewCategory();
+            $controllerCate->viewCategory();
             break;
         case "update-category":
-            $controller->updateCategory();
+            $controllerCate->updateCategory();
             break;
         case "add-category":
-            $controller->addCategory();
+            $controllerCate->addCategory();
+            break;
+        case "view-book";
+            $controllerBook->viewBook();
             break;
         default:
-            $controller->viewCategory();
-
+            $controllerBook->viewBook();
     }
     ?>
 </div>
