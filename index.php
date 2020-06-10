@@ -1,6 +1,7 @@
 <?php
 
 use App\Controller\LibraryController;
+
 $load = require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $controller = new LibraryController();
@@ -15,9 +16,13 @@ $controller = new LibraryController();
     <title>Document</title>
 </head>
 <body>
+<a href="index.php?page=view-category">Category</a>
+<a href="index.php?page=add-category">Add Category</a>
 <?php
-switch ($page){
-
+switch ($page) {
+    case "view-category":
+        $controller->viewCategory();
+        break;
 }
 ?>
 </body>
