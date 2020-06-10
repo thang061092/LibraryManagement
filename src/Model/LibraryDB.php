@@ -58,5 +58,18 @@ class LibraryDB
         $stmt->execute();
     }
 
+    public function getBook()
+    {
+        $sql = "SELECT * FROM books";
+        $stmt = $this->database->query($sql);
+        $result = $stmt->fetchAll();
+        $arr = [];
+        foreach ($result as $item){
+            $book = new Book($item["idBook"],$item["bookName"],$item['author'],$item['publisher'],$item['publishYear'],$item['price'],$item['idCategory']);
+            array_push($arr,$book);
+        }
+        return $arr;
+    }
+
 
 }
