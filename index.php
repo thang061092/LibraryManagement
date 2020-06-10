@@ -1,10 +1,13 @@
 <?php
 
 use App\Controller\LibraryController;
+use App\Controller\StudentControler;
+
 
 $load = require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $controller = new LibraryController();
+$controller01 = new StudentControler();
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,8 +35,15 @@ $controller = new LibraryController();
         case "add-category":
             $controller->addCategory();
             break;
+        case "view-student":
+            $controller01->viewStudent();
+            break;
+        case "add-student":
+            $controller01->addStudent();
+            break;
         default:
-
+            $controller01->viewStudent();
+            break;
     }
     ?>
 </div>
