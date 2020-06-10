@@ -41,7 +41,7 @@
                         <td><?php echo $book->getPublishYear() ?></td>
                         <td><?php echo $book->getPrice() ?></td>
                         <td>
-                            <a class="btn btn-primary" href="index.php?page=update-category&id=<?php echo $book->getIdBook() ?>">update</a>
+                            <a class="btn btn-primary" href="index.php?page=update-book&id=<?php echo $book->getIdBook() ?>">update</a>
                             <a class="btn btn-danger" href="">Delete</a>
                         </td>
                     </tr>

@@ -1,11 +1,14 @@
 <?php
 
 use App\Controller\CategoryController;
+use App\Controller\BookController;
 
 $load = require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
+
 $controllerCate = new CategoryController();
-$controllerBook = new \App\Controller\BookController();
+$controllerBook = new BookController();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -41,6 +44,9 @@ $controllerBook = new \App\Controller\BookController();
             break;
         case "add-book":
             $controllerBook->addBook();
+            break;
+        case "update-book":
+            $controllerBook->updateBook();
             break;
         default:
             $controllerBook->viewBook();
