@@ -13,8 +13,13 @@
         </div>
 
     </div>
+<<<<<<< HEAD
+    <div class="col-12 col-md-12 ">
+        <table class="table">
+=======
     <div class="col-12 col-md-12 list-category">
         <table class="table table-hover">
+>>>>>>> 8edfc0111980403565647858f15ec11430c6c6e9
             <thead class="thead-dark table-bordered">
             <tr>
                 <th>STT</th>
