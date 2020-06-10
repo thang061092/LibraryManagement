@@ -18,9 +18,9 @@
     <?php foreach ($categorys as $key => $category): ?>
         <tr>
             <td><?php echo ++$key ?></td>
-            <td><?php echo $category->getId() ?></td>
             <td><?php echo $category->getCategoryName() ?></td>
             <td><?php echo $category->getDescription() ?></td>
+            <td><a href="index.php?page=update-category&id=<?php echo $category->getId()?>">update</a></td>
         </tr>
     <?php endforeach; ?>
     <tr>

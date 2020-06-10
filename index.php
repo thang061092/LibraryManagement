@@ -23,6 +23,9 @@ switch ($page) {
     case "view-category":
         $controller->viewCategory();
         break;
+    case "update-category":
+        $controller->updateCategory();
+        break;
 }
 ?>
 </body>

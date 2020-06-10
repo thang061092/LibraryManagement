@@ -27,5 +27,26 @@ class LibraryDB
         return $arr;
     }
 
+    public function getIdCategory($id)
+    {
+        $sql = "SELECT * FROM category WHERE id= :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $item = $stmt->fetch();
+        $category = new Categoty($item["id"], $item["categoryName"], $item["description"]);
+        return $category;
+    }
+
+    public function updateCategory($category)
+    {
+        $sql = "UPDATE `category` SET `categoryName`= :categoryName,`description`= :description WHERE `id`= :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":id", $category->getId());
+        $stmt->bindParam(":categoryName", $category->getCategoryName());
+        $stmt->bindParam(":description", $category->getDescription());
+        $stmt->execute();
+    }
+
 
 }
