@@ -42,6 +42,9 @@ $controllerBook = new \App\Controller\BookController();
         case"update-book":
             $controllerBook->updateBook();
             break;
+        case "add-book":
+            $controllerBook->addBook();
+            break;
         default:
             $controllerBook->viewBook();
     }
