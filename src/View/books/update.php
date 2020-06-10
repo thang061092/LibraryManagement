@@ -1,5 +1,6 @@
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <h3>Thêm thể loại sách</h3>
 <div class="col-12 col-md-12">
     <div>
@@ -15,6 +16,8 @@
                 <button type="submit" class="btn btn-primary">Add</button>
                 <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancel</button>
             </div>
+=======
+>>>>>>> f17444d0eef36cf733874df9e5ad882555735790
 <h3>Cập nhật thông tin sách</h3>
 <div class="col-12 col-md-12">
     <div>
