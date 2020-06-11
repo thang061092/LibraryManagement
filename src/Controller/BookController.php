@@ -53,9 +53,21 @@ class BookController
             $publisher = $_REQUEST["publisher"];
             $publishYear = $_REQUEST["publishYear"];
             $price = $_REQUEST["price"];
-//            $book = new Book($idBook, $nameBook, $author, $publisher, $publishYear, $price, $idCategory);
             $this->connect->updateBook($nameBook, $author, $publisher, $publishYear, $price, $idBook);
             header("location:index.php?page=view-book");
         }
     }
+
+    public function searchBook()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            include "src/View/books/search.php";
+        } else {
+            $search = $_REQUEST["search"];
+            $books = $this->connect->searchBook($search);
+            include "src/View/books/search.php";
+        }
+    }
+
+
 }

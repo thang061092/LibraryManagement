@@ -5,16 +5,15 @@
                 <a class="btn btn-primary" href="index.php?page=add-book">Add new</a>
             </div>
             <div class="col-12 col-md-4">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <form class="form-inline my-2 my-lg-0" action="index.php?page=search-book" method="post">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
                 </form>
             </div>
         </div>
     </div>
-        <div class="col-12 col-md-12 list-category">
+        <div class="col-12 col-md-12 ">
             <table class="table table-hover">
-
                 <thead class="thead-dark table-bordered">
                 <tr>
                     <th>STT</th>
