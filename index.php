@@ -70,8 +70,12 @@ $controllerInfo= new InfoCardController()
         case "show-order":
             $controllerInfo->viewListOrder();
             break;
+        case "detail-order":
+            $id= $_REQUEST["id"];
+            $controllerInfo->showInfoOrder($id);
+            break;
         default:
-            $controllerCate->viewCategory();
+            $controllerInfo->viewListOrder();
     }
     ?>
 </div>
