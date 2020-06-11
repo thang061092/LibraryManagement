@@ -51,6 +51,9 @@ $controllerStudent = new StudentControler();
         case "add-book":
             $controllerBook->addBook();
             break;
+        case "search-book":
+            $controllerBook->searchBook();
+            break;
         case "view-student":
             $controllerStudent->viewStudent();
             break;

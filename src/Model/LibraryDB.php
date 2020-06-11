@@ -109,10 +109,24 @@ class LibraryDB
         $stmt->execute();
     }
 
+    public function searchBook($key){
+        $sql="SELECT * FROM `books` WHERE `bookName` LIKE :keyword";
+        $stmt=$this->database->prepare($sql);
+        $stmt->bindValue(":keyword",'%'.$key.'%');
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $arr = [];
+        foreach ($result as $item) {
+            $book = new Book($item["idBook"], $item["bookName"], $item['author'], $item['publisher'], $item['publishYear'], $item['price'], $item['idCategory']);
+            array_push($arr, $book);
+        }
+        return $arr;
+    }
+
     public function getStudent()
     {
         $sql = "SELECT * FROM students";
-        $stmt = $this->database->prepare($sql);
+        $stmt = $this->database->query($sql);
         $result = $stmt->fetchAll();
         $array = [];
         foreach ($result as $item) {

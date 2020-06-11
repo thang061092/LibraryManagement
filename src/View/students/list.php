@@ -13,8 +13,8 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-md-12 list-student">
-        <table class="table">
+    <div class="col-12 col-md-12">
+        <table class="table table-hover">
             <thead class="thead-dark table-bordered">
             <tr>
                 <td>STT</td>
@@ -42,8 +42,7 @@
                         <td><?php echo $student->getEmail() ?></td>
                         <td><?php echo $student->getPhone() ?></td>
                         <td>
-                            <a class="btn btn-primary"
-                               href="index.php?page=update-student&id=<?php echo $student->getId() ?>">Update</a>
+                            <a class="btn btn-primary" href="index.php?page=update-student&id=<?php echo $student->getId() ?>">Update</a>
                             <a class="btn btn-danger" href="">Delete</a>
                         </td>
                     </tr>
