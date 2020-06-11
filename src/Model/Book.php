@@ -80,4 +80,12 @@ class Book
     {
         return $this->publishYear;
     }
+
+    /**
+     * @param mixed $idCategory
+     */
+    public function setIdCategory($idCategory)
+    {
+        $this->idCategory = $idCategory;
+    }
 }

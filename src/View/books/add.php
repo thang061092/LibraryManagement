@@ -1,4 +1,3 @@
-<body>
 <h3>Thêm thể loại sách</h3>
 <div class="col-12 col-md-12">
     <div>
@@ -16,7 +15,11 @@
             <label for="exampleFormControlTextarea1">Price:</label>
             <input class="form-control" name="price" type="text" required>
             <label for="exampleFormControlTextarea1">IdCategory:</label>
-            <input class="form-control" name="idCategory" type="text" required>
+            <select class="custom-select custom-select-lg mb-3" name="idCate">
+                <?php foreach ($categorys as $key => $category): ?>
+                    <option value="<?php echo ++$key ;?>"><?php echo $category->getId() ;?></option>
+                <?php endforeach; ?>
+            </select>
             <br>
             <div class="bt-4">
                 <button type="submit" class="btn btn-primary">Add</button>
@@ -26,4 +29,3 @@
     </div>
 
 </div>
-</body>
