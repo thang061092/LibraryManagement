@@ -25,6 +25,7 @@ class BookController
     public function addBook()
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            $categorys = $this->connect->getCategory();
             include "src/View/books/add.php";
         } else {
             $id = $_REQUEST["id"];
@@ -33,7 +34,7 @@ class BookController
             $publisher = $_REQUEST["publisher"];
             $publishYear = $_REQUEST["publishYear"];
             $price = $_REQUEST["price"];
-            $idCategory = $_REQUEST["idCategory"];
+            $idCategory = $_REQUEST["idCate"];
             $book = new Book($id, $name, $author, $publisher, $publishYear, $price, $idCategory);
             $this->connect->addBook($book);
             header("location:index.php?page=view-book");

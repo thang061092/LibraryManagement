@@ -5,7 +5,7 @@
         <form method="post" action="index.php?page=update-student">
             <label for="exampleFormControlTextarea1">Id: </label>
 
-            <input class="form-control" type="hidden" name="id" value="<?php echo $student->getId(); ?>" disabled>
+            <input class="form-control" type="hidden" name="id" value="<?php echo $student->getId(); ?>" >
             <label for="exampleFormControlTextarea1">Student Name: </label>
             <input class="form-control" type="text" name="studentName" value="<?php echo $student->getStudentName(); ?>" >
             <label for="exampleFormControlTextarea1">Gender: </label>
