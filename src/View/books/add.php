@@ -14,10 +14,10 @@
             <input class="form-control" name="publishYear" type="text" required>
             <label for="exampleFormControlTextarea1">Price:</label>
             <input class="form-control" name="price" type="text" required>
-            <label for="exampleFormControlTextarea1">IdCategory:</label>
+            <label for="exampleFormControlTextarea1">Category:</label>
             <select class="custom-select custom-select-lg mb-3" name="idCate">
                 <?php foreach ($categorys as $key => $category): ?>
-                    <option value="<?php echo ++$key ;?>"><?php echo $category->getId() ;?></option>
+                    <option value="<?php echo ++$key ;?>"><?php echo $category->getCategoryName() ;?></option>
                 <?php endforeach; ?>
             </select>
             <br>
