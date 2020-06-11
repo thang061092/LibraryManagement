@@ -112,7 +112,7 @@ class LibraryDB
     public function getStudent()
     {
         $sql = "SELECT * FROM students";
-        $stmt = $this->database->prepare($sql);
+        $stmt = $this->database->query($sql);
         $result = $stmt->fetchAll();
         $array = [];
         foreach ($result as $item) {

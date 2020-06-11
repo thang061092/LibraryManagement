@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-12 col-md-12 list-student">
-        <table class="table">
+        <table class="table table-hover">
             <thead class="thead-dark table-bordered">
             <tr>
                 <td>STT</td>
