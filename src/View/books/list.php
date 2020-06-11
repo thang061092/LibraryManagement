@@ -6,52 +6,55 @@
             </div>
             <div class="col-12 col-md-4">
                 <form class="form-inline my-2 my-lg-0" action="index.php?page=search-book" method="post">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" required>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ><span class = "glyphicon glyphicon-search"></span>Search</button>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                           name="search" required>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><span
+                                class="glyphicon glyphicon-search"></span>Search
+                    </button>
                 </form>
             </div>
         </div>
     </div>
-        <div class="col-12 col-md-12 ">
-            <table class="table table-hover table-bordered">
-                <thead class="thead-dark table-bordered">
+    <div class="col-12 col-md-12 ">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark table-bordered">
+            <tr>
+                <th>STT</th>
+                <th>Book</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>PublishYear</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+            </thead>
+            <?php if (empty($books)): ?>
                 <tr>
-                    <th>STT</th>
-                    <th>Book</th>
-                    <th>Author</th>
-                    <th>Publisher</th>
-                    <th>PublishYear</th>
-                    <th>Price</th>
-                    <th></th>
+                    <th colspan="10">
+                        No Data
+                    </th>
                 </tr>
-                </thead>
-                <?php if (empty($books)): ?>
+            <?php else: ?>
+                <?php foreach ($books as $key => $book): ?>
                     <tr>
-                        <th colspan="10">
-                            No Data
-                        </th>
+                        <td><?php echo ++$key ?></td>
+                        <td><?php echo $book->getBookName() ?></td>
+                        <td><?php echo $book->getAuthor() ?></td>
+                        <td><?php echo $book->getPublisher() ?></td>
+                        <td><?php echo $book->getPublishYear() ?></td>
+                        <td><?php echo $book->getPrice() ?></td>
+                        <td>
+                            <a class="btn btn-primary"
+                               href="index.php?page=update-book&id=<?php echo $book->getIdBook() ?>">update</a>
+                            <a class="btn btn-danger" href="">Delete</a>
+                        </td>
                     </tr>
-                <?php else: ?>
-                    <?php foreach ($books as $key => $book): ?>
-                        <tr>
-                            <td><?php echo ++$key ?></td>
-                            <td><?php echo $book->getBookName() ?></td>
-                            <td><?php echo $book->getAuthor() ?></td>
-                            <td><?php echo $book->getPublisher() ?></td>
-                            <td><?php echo $book->getPublishYear() ?></td>
-                            <td><?php echo $book->getPrice() ?></td>
-                            <td>
-                                <a class="btn btn-primary"
-                                   href="index.php?page=update-book&id=<?php echo $book->getIdBook() ?>">update</a>
-                                <a class="btn btn-danger" href="">Delete</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
 
-                <?php endif; ?>
+            <?php endif; ?>
 
-            </table>
-        </div>
+        </table>
     </div>
+</div>
 
 
