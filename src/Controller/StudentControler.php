@@ -2,6 +2,7 @@
 
 
 namespace App\Controller;
+
 use App\Model\Student;
 use App\Model\LibraryDB;
 
@@ -24,7 +25,7 @@ class StudentControler
     public function addStudent()
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-           include "src/View/students/add.php";
+            include "src/View/students/add.php";
         } else {
             $id = $_POST['id'];
             $studentName = $_POST['studentName'];

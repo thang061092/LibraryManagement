@@ -14,41 +14,43 @@
         </div>
     </div>
     <div class="col-12 col-md-12 list-student">
-        <table class="table table-hover">
-            <thead class="thead-dark table-bordered">
-            <tr>
-                <td>STT</td>
-                <td>Student Name:</td>
-                <td>Gender:</td>
-                <td>Address:</td>
-                <td>Email:</td>
-                <td>Phone</td>
-                <td></td>
-            </tr>
-            </thead>
-            <?php if (empty($students)): ?>
+        <div class="col-12 col-md-12">
+            <table class="table table-hover">
+                <thead class="thead-dark table-bordered">
                 <tr>
-                    <th colspan="10">
-                        No Data
-                    </th>
+                    <td>STT</td>
+                    <td>Student Name:</td>
+                    <td>Gender:</td>
+                    <td>Address:</td>
+                    <td>Email:</td>
+                    <td>Phone</td>
+                    <td></td>
                 </tr>
-            <?php else: ?>
-                <?php foreach ($students as $key => $student): ?>
+                </thead>
+                <?php if (empty($students)): ?>
                     <tr>
-                        <td><?php echo ++$key ?></td>
-                        <td><?php echo $student->getStudentName() ?></td>
-                        <td><?php echo $student->getGender() ?></td>
-                        <td><?php echo $student->getAddress() ?></td>
-                        <td><?php echo $student->getEmail() ?></td>
-                        <td><?php echo $student->getPhone() ?></td>
-                        <td>
-                            <a class="btn btn-primary"
-                               href="index.php?page=update-student&id=<?php echo $student->getId() ?>">Update</a>
-                            <a class="btn btn-danger" href="">Delete</a>
-                        </td>
+                        <th colspan="10">
+                            No Data
+                        </th>
                     </tr>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </table>
+                <?php else: ?>
+                    <?php foreach ($students as $key => $student): ?>
+                        <tr>
+                            <td><?php echo ++$key ?></td>
+                            <td><?php echo $student->getStudentName() ?></td>
+                            <td><?php echo $student->getGender() ?></td>
+                            <td><?php echo $student->getAddress() ?></td>
+                            <td><?php echo $student->getEmail() ?></td>
+                            <td><?php echo $student->getPhone() ?></td>
+                            <td>
+                                <a class="btn btn-primary"
+                                   href="index.php?page=update-student&id=<?php echo $student->getId() ?>">Update</a>
+                                <a class="btn btn-danger" href="">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </table>
+        </div>
     </div>
 </div>
