@@ -57,6 +57,9 @@ $controllerStudent = new StudentControler();
         case "add-student":
             $controllerStudent->addStudent();
             break;
+        case "update-student":
+            $controllerStudent->updateStudent();
+            break;
         default:
             $controllerStudent->viewStudent();
     }
