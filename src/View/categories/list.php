@@ -6,14 +6,14 @@
             </div>
             <div class="col-12 col-md-4">
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ><span class = "glyphicon glyphicon-search" ></span>Search</button>
                 </form>
             </div>
         </div>
     </div>
     <div class="col-12 col-md-12 list-category">
-        <table class="table table-hover">
+        <table class="table table-hover table-bordered">
             <thead class="thead-dark table-bordered">
             <tr>
                 <th>STT</th>

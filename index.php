@@ -61,7 +61,7 @@ $controllerStudent = new StudentControler();
             $controllerStudent->addStudent();
             break;
         default:
-            $controllerStudent->viewStudent();
+            $controllerBook->viewBook();
     }
     ?>
 </div>
