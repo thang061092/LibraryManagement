@@ -4,6 +4,7 @@ use App\Controller\BookController;
 use App\Controller\CategoryController;
 use App\Controller\InfoCardController;
 use App\Controller\StudentControler;
+use App\Controller\BorrowOrderController;
 
 $load = require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
@@ -11,7 +12,8 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $controllerCate = new CategoryController();
 $controllerBook = new BookController();
 $controllerStudent = new StudentControler();
-$controllerInfo= new InfoCardController()
+$controllerInfo= new InfoCardController();
+$controllerBorrowOrder = new BorrowOrderController();
 
 ?>
 <!doctype html>
@@ -70,8 +72,14 @@ $controllerInfo= new InfoCardController()
         case "show-order":
             $controllerInfo->viewListOrder();
             break;
+        case "view-borrow-order":
+            $controllerBorrowOrder->viewBorrowOrder();
+            break;
+        case "add-borrow-order":
+            $controllerBorrowOrder->addBorrowOrder();
+            break;
         default:
-            $controllerCate->viewCategory();
+            $controllerBorrowOrder->viewBorrowOrder();
     }
     ?>
 </div>

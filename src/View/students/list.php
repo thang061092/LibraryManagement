@@ -16,13 +16,13 @@
         <table class="table table-hover table-bordered">
             <thead class="thead-dark ">
             <tr>
-                <td>STT</td>
-                <td>Student Name</td>
-                <td>Gender</td>
-                <td>Address</td>
-                <td>Email</td>
-                <td>Phone</td>
-                <td></td>
+                <th>STT</th>
+                <th>Student Name</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th></th>
             </tr>
             </thead>
             <?php if (empty($students)): ?>

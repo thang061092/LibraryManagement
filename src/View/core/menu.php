@@ -25,6 +25,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.php?page=view-student"><span class="glyphicon glyphicon-hand-right"></span> Danh Sách Sinh Viên</a>
                     <a class="dropdown-item" href="index.php?page=show-order"><span class="glyphicon glyphicon-hand-right"></span> Danh sách phiếu mượn</a>
+                    <a class="dropdown-item" href="index.php?page=view-borrow-order"><span class="glyphicon glyphicon-hand-right"></span> Danh Sách Thẻ mượn</a>
                 </div>
             </li>
             <li class="nav-item">
