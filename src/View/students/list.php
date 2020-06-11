@@ -2,7 +2,7 @@
     <div class="col-12 col-md-12 pb-2">
         <div class="row">
             <div class="col-12 col-md-8">
-                <a class="btn btn-primary" href="index.php?page=add-category">Add new</a>
+                <a class="btn btn-primary" href="index.php?page=add-student">Add new</a>
             </div>
             <div class="col-12 col-md-4">
                 <form class="form-inline my-2 my-lg-0">
@@ -16,13 +16,13 @@
         <table class="table table-hover table-bordered">
             <thead class="thead-dark ">
             <tr>
-                <td>STT</td>
-                <td>Student Name</td>
-                <td>Gender</td>
-                <td>Address</td>
-                <td>Email</td>
-                <td>Phone</td>
-                <td></td>
+                <th>STT</th>
+                <th>Student Name</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th></th>
             </tr>
             </thead>
             <?php if (empty($students)): ?>

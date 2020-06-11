@@ -170,4 +170,30 @@ class LibraryDB
         $stmt->bindParam(":phone", $student->getPhone() );
         $stmt->execute();
     }
+
+    public function getBorrowOrder()
+    {
+        $sql = "SELECT * FROM borrowOrder";
+        $stmt = $this->database->query($sql);
+        $result = $stmt->fetchAll();
+        $array = [];
+        foreach ($result as $item) {
+            $borrowOrder = new BorrowOrder($item['card'], $item['borrowDate'], $item['returnDate'], $item['status'], $item['comment'], $item['id']);
+            array_push($array, $borrowOrder);
+        }
+        return $array;
+    }
+
+    public function addBorrowOrder($borrowOrder)
+    {
+        $sql = "INSERT INTO `borrowOrder` (`card`, `borrowDate`, `returnDate`, `status`, `comment`, `id`) VALUES (:card, :borrowDate, :returnDate, :status, :comment, :idStudent);";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":card", $borrowOrder->getCard());
+        $stmt->bindParam(":borrowDate", $borrowOrder->getBorrowDate());
+        $stmt->bindParam(":returnDate", $borrowOrder->getReturnDate());
+        $stmt->bindParam(":status", $borrowOrder->getStatus());
+        $stmt->bindParam(":comment", $borrowOrder->getComment());
+        $stmt->bindParam(":idStudent", $borrowOrder->getId());
+        $stmt->execute();
+    }
 }
