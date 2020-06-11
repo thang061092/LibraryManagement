@@ -26,7 +26,7 @@
                     <tr>
                         <td><?php echo ++$key ?></td>
                         <td>
-                            <a href="index.php?page=detail-order$id=<?php echo $order["card"] ?>">
+                            <a href="index.php?page=detail-order&id=<?php echo $order["card"] ?>">
                             <?php echo "PM- " . $order["card"] ?></td>
                         </a>
                         <td><?php echo "Tình Trạng ". $order["status"] ?></td>

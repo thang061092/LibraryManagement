@@ -12,7 +12,7 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $controllerCate = new CategoryController();
 $controllerBook = new BookController();
 $controllerStudent = new StudentControler();
-$controllerInfo= new InfoCardController();
+$controllerInfo = new InfoCardController();
 $controllerBorrowOrder = new BorrowOrderController();
 
 ?>
@@ -69,17 +69,21 @@ $controllerBorrowOrder = new BorrowOrderController();
         case "search-student":
             $controllerStudent->searchStudent();
             break;
-        case "show-order":
-            $controllerInfo->viewListOrder();
-            break;
         case "view-borrow-order":
             $controllerBorrowOrder->viewBorrowOrder();
             break;
         case "add-borrow-order":
             $controllerBorrowOrder->addBorrowOrder();
             break;
+        case "show-order":
+            $controllerInfo->viewListOrder();
+            break;
+        case "detail-order":
+            $id = $_REQUEST["id"];
+            $controllerInfo->showInfoOrder($id);
+            break;
         default:
-            $controllerBorrowOrder->viewBorrowOrder();
+            $controllerInfo->viewListOrder();
     }
     ?>
 </div>
