@@ -148,4 +148,26 @@ class LibraryDB
         $stmt->bindParam(":phone", $student->getPhone());
         $stmt->execute();
     }
+
+    public function getIdStudent($id)
+    {
+        $sql = "SELECT * FROM students WHERE id = '$id'";
+        $stmt = $this->database->query($sql);
+        $item = $stmt->fetch();
+        $student = new Student($item['id'], $item['studentName'], $item['gender'], $item['address'], $item['email'], $item['phone']);
+        return $student;
+    }
+
+    public function updateStudent($student)
+    {
+        $sql = "UPDATE students SET studentName = :studentName, gender = :gender, address = :address, email = :email, phone = :phone WHERE id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":id", $student->getId());
+        $stmt->bindParam(":studentName", $student->getStudentName() );
+        $stmt->bindParam(":gender", $student->getGender() );
+        $stmt->bindParam(":address", $student->getAddress() );
+        $stmt->bindParam(":email", $student->getEmail() );
+        $stmt->bindParam(":phone", $student->getPhone() );
+        $stmt->execute();
+    }
 }

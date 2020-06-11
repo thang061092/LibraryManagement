@@ -38,4 +38,23 @@ class StudentControler
             header("Location:index.php?page=view-student");
         }
     }
+
+    public function updateStudent()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            $id = $_GET['id'];
+            $student = $this->connect->getIdStudent($id);
+            include "src/View/students/update.php";
+        } else {
+            $id = $_POST['id'];
+            $studentName = $_POST['studentName'];
+            $gender = $_POST['gender'];
+            $address = $_POST['address'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $student = new Student($id, $studentName, $gender, $address, $email, $phone);
+            $this->connect->updateStudent($student);
+            header("Location:index.php?page=view-student");
+        }
+    }
 }
