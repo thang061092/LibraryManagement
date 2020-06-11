@@ -170,4 +170,22 @@ class LibraryDB
         $stmt->bindParam(":phone", $student->getPhone() );
         $stmt->execute();
     }
+
+    public function searchStudent($key)
+    {
+        $sql="SELECT * FROM `students` WHERE `studentName` LIKE :keyword";
+        $stmt=$this->database->prepare($sql);
+        $stmt->bindValue(":keyword",'%'.$key.'%');
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $arr = [];
+        foreach ($result as $item) {
+            $student = new Student($item["id"], $item["studentName"], $item['gender'], $item['address'], $item['email'], $item['phone']);
+            array_push($arr, $student);
+        }
+        return $arr;
+    }
+
+
+
 }

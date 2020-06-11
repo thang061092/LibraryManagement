@@ -33,7 +33,7 @@ class StudentControler
             $address = $_POST['address'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
-            $student = new Student($id, $studentName, $gender, $address, $email, $phone,);
+            $student = new Student($id, $studentName, $gender, $address, $email, $phone);
             $this->connect->addStudent($student);
             header("Location:index.php?page=view-student");
         }
@@ -55,6 +55,17 @@ class StudentControler
             $student = new Student($id, $studentName, $gender, $address, $email, $phone);
             $this->connect->updateStudent($student);
             header("Location:index.php?page=view-student");
+        }
+    }
+
+    public function searchStudent()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            include "src/View/students/search.php";
+        } else {
+            $search = $_REQUEST["search"];
+            $students = $this->connect->searchStudent($search);
+            include "src/View/students/search.php";
         }
     }
 }

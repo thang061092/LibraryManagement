@@ -63,8 +63,11 @@ $controllerStudent = new StudentControler();
         case "update-student":
             $controllerStudent->updateStudent();
             break;
+        case "search-student":
+            $controllerStudent->searchStudent();
+            break;
         default:
-            $controllerBook->viewBook();
+            $controllerCate->viewCategory();
     }
     ?>
 </div>
