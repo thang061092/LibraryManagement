@@ -109,10 +109,11 @@ class LibraryDB
         $stmt->execute();
     }
 
-    public function searchBook($key){
-        $sql="SELECT * FROM `books` WHERE `bookName` LIKE :keyword";
-        $stmt=$this->database->prepare($sql);
-        $stmt->bindValue(":keyword",'%'.$key.'%');
+    public function searchBook($key)
+    {
+        $sql = "SELECT * FROM `books` WHERE `bookName` LIKE :keyword";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindValue(":keyword", '%' . $key . '%');
         $stmt->execute();
         $result = $stmt->fetchAll();
         $arr = [];
@@ -163,11 +164,24 @@ class LibraryDB
         $sql = "UPDATE students SET studentName = :studentName, gender = :gender, address = :address, email = :email, phone = :phone WHERE id = :id";
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(":id", $student->getId());
-        $stmt->bindParam(":studentName", $student->getStudentName() );
-        $stmt->bindParam(":gender", $student->getGender() );
-        $stmt->bindParam(":address", $student->getAddress() );
-        $stmt->bindParam(":email", $student->getEmail() );
-        $stmt->bindParam(":phone", $student->getPhone() );
+        $stmt->bindParam(":studentName", $student->getStudentName());
+        $stmt->bindParam(":gender", $student->getGender());
+        $stmt->bindParam(":address", $student->getAddress());
+        $stmt->bindParam(":email", $student->getEmail());
+        $stmt->bindParam(":phone", $student->getPhone());
+        $stmt->execute();
+    }
+
+    public function infoOrder($id)
+    {
+        $sql = "SELECT students.studentName, students.phone, borrowOrder.borrowDate, borrowOrder.returnDate, borrowOrder.status, books.bookName, books.price, borrowOrder.comment
+                FROM students
+                INNER JOIN borrowOrder ON students.id = borrowOrder.id
+                INNER JOIN details ON borrowOrder.card = details.card
+                INNER JOIN books ON details.idBook = books.idBook
+                WHERE students.id= :id ";
+        $stmt= $this->database->prepare($sql);
+        $stmt->bindParam(":id",$id);
         $stmt->execute();
     }
 
