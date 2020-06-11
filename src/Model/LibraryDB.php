@@ -172,7 +172,7 @@ class LibraryDB
         $stmt->execute();
     }
 
-    public function infoOrder($id)
+    public function infoOrderById($id)
     {
         $sql = "SELECT students.studentName, students.phone, borrowOrder.borrowDate, borrowOrder.returnDate, borrowOrder.status, books.bookName, books.price, borrowOrder.comment
                 FROM students
@@ -180,16 +180,23 @@ class LibraryDB
                 INNER JOIN details ON borrowOrder.card = details.card
                 INNER JOIN books ON details.idBook = books.idBook
                 WHERE students.id= :id ";
-        $stmt= $this->database->prepare($sql);
-        $stmt->bindParam(":id",$id);
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":id", $id);
         $stmt->execute();
+    }
+
+    public function infoOrder()
+    {
+        $sql = "SELECT * FROM borrowOrder";
+        $stmt= $this->database->query($sql);
+        return $stmt->fetchAll();
     }
 
     public function searchStudent($key)
     {
-        $sql="SELECT * FROM `students` WHERE `studentName` LIKE :keyword";
-        $stmt=$this->database->prepare($sql);
-        $stmt->bindValue(":keyword",'%'.$key.'%');
+        $sql = "SELECT * FROM `students` WHERE `studentName` LIKE :keyword";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindValue(":keyword", '%' . $key . '%');
         $stmt->execute();
         $result = $stmt->fetchAll();
         $arr = [];
@@ -199,7 +206,6 @@ class LibraryDB
         }
         return $arr;
     }
-
 
 
 }

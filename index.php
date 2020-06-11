@@ -2,6 +2,7 @@
 
 use App\Controller\BookController;
 use App\Controller\CategoryController;
+use App\Controller\InfoCardController;
 use App\Controller\StudentControler;
 
 $load = require __DIR__ . '/vendor/autoload.php';
@@ -10,7 +11,7 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $controllerCate = new CategoryController();
 $controllerBook = new BookController();
 $controllerStudent = new StudentControler();
-
+$controllerInfo= new InfoCardController()
 
 ?>
 <!doctype html>
@@ -65,6 +66,9 @@ $controllerStudent = new StudentControler();
             break;
         case "search-student":
             $controllerStudent->searchStudent();
+            break;
+        case "show-order":
+            $controllerInfo->viewListOrder();
             break;
         default:
             $controllerCate->viewCategory();

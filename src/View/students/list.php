@@ -2,7 +2,7 @@
     <div class="col-12 col-md-12 pb-2">
         <div class="row">
             <div class="col-12 col-md-8">
-                <a class="btn btn-primary" href="index.php?page=add-category">Add new</a>
+                <a class="btn btn-primary" href="index.php?page=add-student">Add new</a>
             </div>
             <div class="col-12 col-md-4">
                 <form class="form-inline my-2 my-lg-0" action="index.php?page=search-student" method="post">
