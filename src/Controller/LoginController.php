@@ -39,7 +39,7 @@ class LoginController
             $phone = $_REQUEST["phone"];
             $pass = $_REQUEST["pass"];
             $this->userDB->add($name, $email, $phone, $pass);
-            echo "Dang ki thanh cong";
+            header('location:login.php');
         }
 
     }
