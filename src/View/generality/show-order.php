@@ -13,6 +13,7 @@
                 <th>STT</th>
                 <th>Card</th>
                 <th>Status</th>
+                <th>Comment</th>
             </tr>
             </thead>
             <?php if (empty($orders)): ?>
@@ -29,7 +30,8 @@
                             <a href="index.php?page=detail-order&id=<?php echo $order["card"] ?>">
                             <?php echo "PM- " . $order["card"] ?></td>
                         </a>
-                        <td><?php echo "Tình Trạng ". $order["status"] ?></td>
+                        <td><?php echo $order["status"] ?></td>
+                        <td><?php echo $order["comment"] ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>

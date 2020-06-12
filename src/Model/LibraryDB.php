@@ -235,4 +235,15 @@ class LibraryDB
         $stmt->execute();
     }
 
+    public function updateStatus($id, $status)
+    {
+        $sql = "UPDATE borrowOrder SET status= :status WHERE card= :card";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":status", $status);
+        $stmt->bindParam(":card", $id);
+        $stmt->execute();
+        return $stmt->fetchAll();
+
+    }
+
 }
