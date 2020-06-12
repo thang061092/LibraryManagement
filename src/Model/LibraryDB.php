@@ -73,15 +73,15 @@ class LibraryDB
 
     public function addBook($book)
     {
-        $sql = "INSERT INTO books(idBook, bookName, author, publisher, publishYear, price, idCategory) VALUES ( :idBook, :bookName, :author, :publisher, :publishYear, :price, :idCategory)";
+        $sql = "INSERT INTO books(idBook, bookName, author, publisher, publishYear, price, idCategory) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(":idBook", $book->getIdBook());
-        $stmt->bindParam(":bookName", $book->getBookName());
-        $stmt->bindParam(":author", $book->getAuthor());
-        $stmt->bindParam(":publisher", $book->getPublisher());
-        $stmt->bindParam(":publishYear", $book->getPublishYear());
-        $stmt->bindParam(":price", $book->getPrice());
-        $stmt->bindParam(":idCategory", $book->getIdCategory());
+        $stmt->bindParam(1, $book->getIdBook());
+        $stmt->bindParam(2, $book->getBookName());
+        $stmt->bindParam(3, $book->getAuthor());
+        $stmt->bindParam(4, $book->getPublisher());
+        $stmt->bindParam(5, $book->getPublishYear());
+        $stmt->bindParam(6, $book->getPrice());
+        $stmt->bindParam(7, $book->getIdCategory());
         $stmt->execute();
     }
 
@@ -234,4 +234,5 @@ class LibraryDB
         $stmt->bindParam(":idStudent", $borrowOrder->getId());
         $stmt->execute();
     }
+
 }

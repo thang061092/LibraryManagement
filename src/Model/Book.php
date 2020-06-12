@@ -6,13 +6,13 @@ namespace App\Model;
 
 class Book
 {
-    protected $idBook;
-    protected $bookName;
-    protected $author;
-    protected $publisher;
-    protected $publishYear;
-    protected $price;
-    protected $idCategory;
+    public $idBook;
+    public $bookName;
+    public $author;
+    public $publisher;
+    public $publishYear;
+    public $price;
+    public $idCategory;
 
     public function __construct($idBook,$bookName,$author,$publisher,$publishYear,$price,$idCategory)
     {

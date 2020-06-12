@@ -23,4 +23,15 @@ class UserDB
         $item = $stmt->fetch();
         return $item;
     }
+
+    public function add($name,$email,$phone,$pass){
+        $sql= "INSERT INTO `users`(userName, `email`, `phone`, `password`) VALUES (?, ?, ?, ?)";
+        $stmt= $this->database->prepare($sql);
+        $stmt->bindParam(1,$name);
+        $stmt->bindParam(2,$email);
+        $stmt->bindParam(3,$phone);
+        $stmt->bindParam(4,$pass);
+        $stmt->execute();
+
+    }
 }

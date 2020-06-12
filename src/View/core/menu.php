@@ -29,10 +29,10 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="false"><span class="glyphicon glyphicon-envelope"></span> Góp ý</a>
+                    <a class="nav-link " href="https://mail.google.com/mail/u/0/?tab=rm#inbox" tabindex="-1" aria-disabled="false"><span class="glyphicon glyphicon-envelope"></span> Góp ý</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="src/View/logIn/checklogin.php" tabindex="-1" aria-disabled="false"><span class="glyphicon"></span> Log Out</a>
+                    <a class="nav-link " href="src/View/logIn/checklogin.php" tabindex="-1" aria-disabled="false"><span class="glyphicon glyphicon-cog"></span> Log Out</a>
                 </li>
             </ul>
         </div>
