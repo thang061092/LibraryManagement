@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Model\User;
 use App\Model\UserDB;
 
 class LoginController
@@ -22,12 +21,13 @@ class LoginController
             $_SESSION['userLogin'] = $result;
             header('location: ../../../index.php');
         } else {
-            header('location: login.php');
+            header('location:login.php');
         }
     }
 
     public function logout()
     {
         session_destroy();
+        header('location:login.php');
     }
 }

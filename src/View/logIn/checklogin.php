@@ -11,4 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_REQUEST["email"];
     $password = $_REQUEST["password"];
     $controller->login($email, $password);
+}else{
+    $controller->logout();
 }
