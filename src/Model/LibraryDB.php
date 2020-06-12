@@ -179,6 +179,7 @@ class LibraryDB
                 INNER JOIN borrowOrder ON students.id = borrowOrder.id
                 INNER JOIN details ON borrowOrder.card = details.card
                 INNER JOIN books ON details.idBook = books.idBook
+                INNER JOIN category ON books.idCategory = category.id 
                 WHERE borrowOrder.card= :id ";
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(":id", $id);

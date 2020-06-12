@@ -1,12 +1,21 @@
 <?php
+session_start();
 
 use App\Controller\BookController;
 use App\Controller\CategoryController;
 use App\Controller\InfoCardController;
+use App\Controller\LoginController;
 use App\Controller\StudentControler;
 use App\Controller\BorrowOrderController;
+use App\Middleware\Authentication;
 
 $load = require __DIR__ . '/vendor/autoload.php';
+
+
+$auth = new Authentication();
+$auth->isLogin();
+
+
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 
 $controllerCate = new CategoryController();
@@ -14,6 +23,9 @@ $controllerBook = new BookController();
 $controllerStudent = new StudentControler();
 $controllerInfo = new InfoCardController();
 $controllerBorrowOrder = new BorrowOrderController();
+$controllerLogin = new LoginController();
+
+
 
 ?>
 <!doctype html>
@@ -26,10 +38,10 @@ $controllerBorrowOrder = new BorrowOrderController();
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/htmt.css" type="text/css">
 </head>
 <body>
 <div class="container">
@@ -83,7 +95,7 @@ $controllerBorrowOrder = new BorrowOrderController();
             $controllerInfo->showInfoOrder($id);
             break;
         default:
-            $controllerInfo->viewListOrder();
+            $controllerBook->viewBook();
     }
     ?>
 </div>

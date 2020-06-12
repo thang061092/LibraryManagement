@@ -9,16 +9,16 @@ use App\Model\LibraryDB;
 
 class StudentControler
 {
-    protected $connect;
+    protected $libraryDB;
 
     public function __construct()
     {
-        $this->connect = new LibraryDB();
+        $this->libraryDB = new LibraryDB();
     }
 
     public function viewStudent()
     {
-        $students = $this->connect->getStudent();
+        $students = $this->libraryDB->getStudent();
         include "src/View/students/list.php";
     }
 
@@ -34,7 +34,7 @@ class StudentControler
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $student = new Student($id, $studentName, $gender, $address, $email, $phone);
-            $this->connect->addStudent($student);
+            $this->libraryDB->addStudent($student);
             header("Location:index.php?page=view-student");
         }
     }
@@ -43,7 +43,7 @@ class StudentControler
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $id = $_GET['id'];
-            $student = $this->connect->getIdStudent($id);
+            $student = $this->libraryDB->getIdStudent($id);
             include "src/View/students/update.php";
         } else {
             $id = $_POST['id'];
@@ -53,7 +53,7 @@ class StudentControler
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $student = new Student($id, $studentName, $gender, $address, $email, $phone);
-            $this->connect->updateStudent($student);
+            $this->libraryDB->updateStudent($student);
             header("Location:index.php?page=view-student");
         }
     }
@@ -64,7 +64,7 @@ class StudentControler
             include "src/View/students/search.php";
         } else {
             $search = $_REQUEST["search"];
-            $students = $this->connect->searchStudent($search);
+            $students = $this->libraryDB->searchStudent($search);
             include "src/View/students/search.php";
         }
     }
