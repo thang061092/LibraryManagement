@@ -174,7 +174,7 @@ class LibraryDB
 
     public function infoOrderById($id)
     {
-        $sql = "SELECT students.studentName, students.phone, borrowOrder.borrowDate, borrowOrder.returnDate, borrowOrder.status, books.bookName, books.price, borrowOrder.comment
+        $sql = "SELECT students.studentName, students.phone, borrowOrder.borrowDate, borrowOrder.returnDate, borrowOrder.status, books.bookName, books.price, borrowOrder.comment, borrowOrder.card, details.card, details.idBook
                 FROM students
                 INNER JOIN borrowOrder ON students.id = borrowOrder.id
                 INNER JOIN details ON borrowOrder.card = details.card
@@ -244,6 +244,15 @@ class LibraryDB
         $stmt->execute();
         return $stmt->fetchAll();
 
+    }
+
+    public function detailBook($order, $book)
+    {
+        $sql = "INSERT INTO `details`(card, idBook) VALUES (:card, :idBook)";
+        $stmt=$this->database->prepare($sql);
+        $stmt->bindParam(":card", $order);
+        $stmt->bindParam(":idBook", $book);
+        $stmt->execute();
     }
 
 }

@@ -9,6 +9,10 @@
     <div class="col-12 col-md-12 ">
         <table class="table table-hover table-bordered">
             <tr>
+                <th>Phiếu Mượn</th>
+                <td><?php echo "PM-" .$order[0]["card"] ?></td>
+            </tr>
+            <tr>
                 <th>Họ và Tên</th>
                 <td><?php echo $order[0]["studentName"] ?></td>
             </tr>
@@ -69,6 +73,7 @@
             <?php endforeach; ?>
         <?php endif; ?>
     </table>
+    <a href="index.php?page=order-book&id=<?php echo $order[0]["card"]?>" class="btn btn-primary">Mượn thêm sách</a>
     <a href="index.php?page=show-order" class="btn btn-primary">Trở về</a>
 </div>
 
