@@ -71,4 +71,12 @@ class BorrowOrder
     {
         return $this->id;
     }
+
+    /**
+     * @param mixed $card
+     */
+    public function setCard($card)
+    {
+        $this->card = $card;
+    }
 }

@@ -31,4 +31,21 @@ class InfoCardController
         }
         include "src/View/generality/detail-order.php";
     }
+
+    public function orderBook()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            $id=$_REQUEST["id"];
+            $order = $this->connect->infoOrderById($id);
+            $books = $this->connect->getBook();
+            include "src/View/generality/detail-book.php";
+        }else{
+            $id=$_REQUEST["id"];
+            $card= $_REQUEST["order"];
+            $book = $_REQUEST["book"];
+            $this->connect->detailBook($card,$book);
+            header("location:index.php?page=detail-order&id=$id");
+        }
+
+    }
 }

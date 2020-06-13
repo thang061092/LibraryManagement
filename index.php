@@ -93,6 +93,9 @@ $controllerLogin = new LoginController();
             $id = $_REQUEST["id"];
             $controllerInfo->showInfoOrder($id);
             break;
+        case "order-book":
+            $controllerInfo->orderBook();
+            break;
         default:
             $controllerBook->viewBook();
     }

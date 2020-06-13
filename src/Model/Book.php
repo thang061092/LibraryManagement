@@ -88,4 +88,12 @@ class Book
     {
         $this->idCategory = $idCategory;
     }
+
+    /**
+     * @param mixed $idBook
+     */
+    public function setIdBook($idBook)
+    {
+        $this->idBook = $idBook;
+    }
 }
