@@ -2,6 +2,7 @@
 <div class="col-12 col-md-12">
     <div>
         <form method="post" class="">
+            <div>
             <label for="exampleFormControlTextarea1">IdBook:</label>
             <input class="form-control" name="id" type="text" required>
             <label for="exampleFormControlTextarea1">Book:</label>
@@ -17,10 +18,10 @@
             <label for="exampleFormControlTextarea1">Category:</label>
             <select class="custom-select custom-select-lg mb-3" name="idCate">
                 <?php foreach ($categorys as $key => $category): ?>
-                    <option value="<?php echo ++$key ;?>"><?php echo $category->getCategoryName() ;?></option>
+                    <option value="<?php echo $category->getId() ;?>"><?php echo $category->getCategoryName() ;?></option>
                 <?php endforeach; ?>
             </select>
-            <br>
+            </div>
             <div class="bt-4">
                 <button type="submit" class="btn btn-primary">Add</button>
                 <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancel</button>
