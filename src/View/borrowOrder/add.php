@@ -4,15 +4,18 @@
     <form method="post">
         <div>
             <label for="exampleFormControlTextarea1">Card: </label>
-            <input class="form-control" type="text" name="card" required>
+            <input class="form-control" type="text" name="card" required placeholder="text number">
             <label for="exampleFormControlTextarea1">Borrow Date: </label>
-            <input class="form-control" type="text" name="borrowdate" required>
+            <input class="form-control" type="text" name="borrowdate" required placeholder="yyyy-mm-dd">
             <label for="exampleFormControlTextarea1">Return Date: </label>
-            <input class="form-control" type="text" name="returndate" required>
+            <input class="form-control" type="text" name="returndate" required placeholder="yyyy-mm-dd">
             <label for="exampleFormControlTextarea1">Status: </label>
-            <input class="form-control" type="text" name="status" required>
+            <select class="custom-select custom-select-lg mb-3" name="status">
+                <option value="Đã trả">Đã trả</option>
+                <option value="Chưa trả sách ">Chưa trả sách</option>
+            </select>
             <label for="exampleFormControlTextarea1">Comment: </label>
-            <input class="form-control" type="text" name="comment" required>
+            <input class="form-control" type="text" name="comment" required placeholder="text">
             <label for="exampleFormControlTextarea1">Id Sinh viên: </label>
             <select class="custom-select custom-select-lg mb-3" name="idStudent">
                 <?php foreach ($students as $key => $student): ?>

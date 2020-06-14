@@ -12,9 +12,9 @@
             <label for="exampleFormControlTextarea1">Address: </label>
             <input class="form-control" type="text" name="address" id="" required>
             <label for="exampleFormControlTextarea1">Email: </label>
-            <input class="form-control" type="text" name="email" id="" required>
+            <input class="form-control" type="email" name="email" id="" required>
             <label for="exampleFormControlTextarea1">Phone: </label>
-            <input class="form-control" type="text" name="phone" id="" required>
+            <input class="form-control" type="number" name="phone" id="" required>
             <div>
                 <button class="btn btn-primary" type="submit">Add</button>
                 <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancel</button>
