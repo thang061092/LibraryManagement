@@ -96,6 +96,9 @@ $controllerLogin = new LoginController();
         case "order-book":
             $controllerInfo->orderBook();
             break;
+        case "order-data-book":
+            $controllerInfo->order();
+            break;
         default:
             $controllerBook->viewBook();
     }

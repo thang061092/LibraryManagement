@@ -10,7 +10,7 @@
         <table class="table table-hover table-bordered">
             <tr>
                 <th>Phiếu Mượn</th>
-                <td><?php echo "PM-" .$order[0]["card"] ?></td>
+                <td><?php echo "PM-" . $order[0]["card"] ?></td>
             </tr>
             <tr>
                 <th>Họ và Tên</th>
@@ -62,6 +62,11 @@
                     No Data
                 </th>
             </tr>
+            <tr>
+                <th colspan="10">
+                    <a href="index.php?page=order-data-book" class="btn btn-primary">Mượn sách</a>
+                </th>
+            </tr>
         <?php else: ?>
             <?php foreach ($order as $key => $value): ?>
                 <tr>
@@ -71,10 +76,13 @@
                     <td><?php echo $value['returnDate'] ?></td>
                 </tr>
             <?php endforeach; ?>
+            <td colspan="5">
+                <a href="index.php?page=order-book&id=<?php echo $order[0]["card"] ?>" class="btn btn-primary">Mượn thêm
+                    sách</a>
+            </td>
         <?php endif; ?>
     </table>
-    <a href="index.php?page=order-book&id=<?php echo $order[0]["card"]?>" class="btn btn-primary">Mượn thêm sách</a>
-    <a href="index.php?page=show-order" class="btn btn-primary">Trở về</a>
+    <a href="index.php?page=show-order" class="btn btn-secondary">Trở về</a>
 </div>
 
 
