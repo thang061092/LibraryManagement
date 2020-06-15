@@ -41,6 +41,7 @@ class LoginController
             $this->userDB->add($name, $email, $phone, $pass);
             header('location:login.php');
         }
-
     }
+
+
 }

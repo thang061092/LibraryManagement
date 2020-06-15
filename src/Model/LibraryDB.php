@@ -255,4 +255,11 @@ class LibraryDB
         $stmt->execute();
     }
 
+    public function deleteOrder($idc,$idb){
+        $sql= "DELETE FROM details WHERE card = :idc AND idBook= :idb ";
+        $stmt=$this->database->prepare($sql);
+        $stmt->bindParam(":idb",$idb);
+        $stmt->bindParam(":idc",$idc);
+        $stmt->execute();
+    }
 }

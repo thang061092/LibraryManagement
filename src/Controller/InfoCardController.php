@@ -62,4 +62,11 @@ class InfoCardController
             header("location:index.php?page=show-order");
         }
     }
+
+    public function deleteOrder($idc, $idb)
+    {
+        $this->connect->deleteOrder($idc, $idb);
+        header("location:index.php?page=detail-order&id=$idc");
+
+    }
 }

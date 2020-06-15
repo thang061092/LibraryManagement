@@ -54,6 +54,7 @@
             <th>Tên sách</th>
             <th>Ngày mượn</th>
             <th>Ngày trả</th>
+            <th></th>
         </tr>
         </thead>
         <?php if (empty($order)): ?>
@@ -74,6 +75,7 @@
                     <td><?php echo $value['bookName'] ?></td>
                     <td><?php echo $value['borrowDate'] ?></td>
                     <td><?php echo $value['returnDate'] ?></td>
+                    <td><a href="index.php?page=delete-order&idCard=<?php echo $value['card']?>&idBook=<?php echo $value['idBook']?>" class="btn btn-danger">Delete</a></td>
                 </tr>
             <?php endforeach; ?>
             <td colspan="5">

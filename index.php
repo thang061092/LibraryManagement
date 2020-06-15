@@ -99,8 +99,14 @@ $controllerLogin = new LoginController();
         case "order-data-book":
             $controllerInfo->order();
             break;
+        case "delete-order":
+            $idc= $_REQUEST["idCard"];
+            $idb= $_REQUEST["idBook"];
+            $controllerInfo->deleteOrder($idc,$idb);
+            break;
         default:
             $controllerBook->viewBook();
+            break;
     }
     ?>
 </div>
