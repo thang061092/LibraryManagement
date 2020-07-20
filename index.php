@@ -100,9 +100,9 @@ $controllerLogin = new LoginController();
             $controllerInfo->order();
             break;
         case "delete-order":
-            $idc= $_REQUEST["idCard"];
-            $idb= $_REQUEST["idBook"];
-            $controllerInfo->deleteOrder($idc,$idb);
+            $idc = $_REQUEST["idCard"];
+            $idb = $_REQUEST["idBook"];
+            $controllerInfo->deleteOrder($idc, $idb);
             break;
         default:
             $controllerBook->viewBook();

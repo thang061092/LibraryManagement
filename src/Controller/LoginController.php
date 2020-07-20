@@ -13,6 +13,7 @@ class LoginController
         $this->userDB = new UserDB();
     }
 
+
     public function login($email, $pass)
     {
         $result = $this->userDB->getUser($email, $pass);
